@@ -1,8 +1,12 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
+ARG XFLUX_COMMIT=2897c0a
+
 RUN cd /comfyui/custom_nodes && \
-	git clone https://github.com/XLabs-AI/x-flux-comfyui.git && \
+	git clone --no-checkout --depth 1 https://github.com/XLabs-AI/x-flux-comfyui.git x-flux-comfyui && \
 	cd x-flux-comfyui && \
+	git fetch --depth 1 origin ${XFLUX_COMMIT} && \
+	git checkout ${XFLUX_COMMIT} && \
 	python -m pip install --no-cache-dir .
 
 RUN mkdir -p /comfyui/models/clip_vision && \
