@@ -7,7 +7,7 @@ RUN cd /comfyui/custom_nodes && \
 	cd x-flux-comfyui && \
 	git fetch --depth 1 origin ${XFLUX_COMMIT} && \
 	git checkout ${XFLUX_COMMIT} && \
-	python -m pip install --no-cache-dir .
+	python setup.py
 
 RUN mkdir -p /comfyui/models/clip_vision && \
 	wget -O /comfyui/models/clip_vision/clip_l_vision_openai.safetensors \
