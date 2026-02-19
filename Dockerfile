@@ -1,6 +1,6 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
-ARG XFLUX_COMMIT=2897c0a
+ARG XFLUX_COMMIT=2897c0a088b130fb77172d11fd936d3c888d8b02
 
 RUN cd /comfyui/custom_nodes && \
 	git clone --no-checkout --depth 1 https://github.com/XLabs-AI/x-flux-comfyui.git x-flux-comfyui && \
